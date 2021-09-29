@@ -1,5 +1,5 @@
-import np as np
-from PIL.Image import Image
+import numpy as np
+from PIL import Image
 from skimage.feature import hog
 from skimage.color import rgb2grey
 

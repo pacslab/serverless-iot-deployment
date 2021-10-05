@@ -1,13 +1,14 @@
 import json
 from io import BytesIO
+import uuid
 
 import joblib
-import numpy as np
 from PIL import Image
 from flask import Flask, jsonify, request, Response
 from flask_cors import cross_origin
 
 from feature_extraction import create_features_from_image
+from insert_db import commitData
 
 app = Flask(__name__, static_url_path='')
 
@@ -44,8 +45,10 @@ def predict():
     prediction = svm.predict([test_features])
     print("Prediction: " + label[prediction[0]])
     result = int(prediction[0])
+    id = str(uuid.uuid1())
 
     # persist
+    commitData(id, result)
 
     return jsonify({
         'prediction': result

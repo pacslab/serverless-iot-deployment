@@ -1,9 +1,6 @@
-from feature_extraction import create_features
 from process_input import process
 from resize import *
 import time
-
-from training import create_feature_matrix
 
 
 def main():
@@ -16,9 +13,9 @@ def main():
 
     print("\nTest:")
     destination = 'dataset_1/test_set/resize/dog.51.jpg'
-    path = 'dataset_1/test_set/dog.51.jpg'
+    path = '../dataset_1/test_set/dog.51.jpg'
     resize(path, destination)
-    process('dataset_1/test_set/resize/dog.51.jpg')
+    process('../dataset_1/test_set/resize/dog.51.jpg')
 
 # Run Main
 if __name__ == "__main__":

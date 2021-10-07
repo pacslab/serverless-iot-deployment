@@ -1,2 +1,3 @@
-# image-classification
-Image Classification based on Functions and Microservices
+# Performance and Cost Optimization of Serverless Architectures for IoT
+
+Functions vs Microservices for IoT

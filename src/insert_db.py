@@ -1,7 +1,9 @@
+import os
+
 import mysql.connector
 
 mydb = mysql.connector.connect(
-  host="db",
+  host=os.environ.get("IP_MYSQL"),
   user="root",
   password='password',
   database="cat"

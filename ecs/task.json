@@ -1,0 +1,46 @@
+{
+  "family": "fargate-task-definition",
+  "executionRoleArn": "arn:aws:iam::021789210942:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "cpu": 512,
+  "memory": 1024,
+  "requiresCompatibilities": [
+       "FARGATE"
+   ],
+  "containerDefinitions": [
+    {
+      "name": "app-microservice",
+      "image": "021789210942.dkr.ecr.ca-central-1.amazonaws.com/app-env:3",
+      "portMappings": [
+          {
+              "containerPort": 5000,
+              "hostPort": 5000,
+              "protocol": "tcp"
+          }
+      ],
+      "essential": true,
+      "cpu": 512,
+
+      "memoryReservation": 1024,
+
+      "environment": [
+          {
+              "name": "IP_MYSQL",
+              "value": "database-images.chtf1hopc7q1.ca-central-1.rds.amazonaws.com"
+          },
+         {
+              "name": "USER_MYSQL",
+              "value": "user"
+          }
+      ],
+      "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+               "awslogs-group" : "/ecs/fargate-task-definition",
+               "awslogs-region": "ca-central-1",
+               "awslogs-stream-prefix": "ecs"
+            }
+         }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+This is the Lambda application in container image

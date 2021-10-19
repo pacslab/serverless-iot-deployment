@@ -1,0 +1,6 @@
+numpy==1.20.1
+scikit_image==0.18.3
+joblib==1.0.1
+scikit-learn==1.0
+mysql-connector-python
+Pillow==8.3.2

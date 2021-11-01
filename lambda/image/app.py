@@ -6,8 +6,6 @@ import numpy as np
 from PIL import Image
 from skimage.feature import hog
 from skimage.color import rgb2gray
-import os
-import mysql.connector
 import base64
 
 
@@ -29,36 +27,14 @@ def create_features(path):
     return create_features_from_image(img)
 
 
-# mydb = mysql.connector.connect(
-#   host=os.environ.get("database-images.chtf1hopc7q1.ca-central-1.rds.amazonaws.com"),
-#   user=os.environ.get("user"),
-#   password='password',
-#   database="cat"
-# )
-
-
-def commitData(requestId, prediction):
-  mycursor = mydb.cursor()
-
-  sql = "INSERT INTO prediction (requestId, prediction) VALUES (%s, %s)"
-  val = (requestId, prediction)
-  mycursor.execute(sql, val)
-
-  mydb.commit()
-
-
 def handler(event, context):
     #get image
     print(event)
     body = json.loads(event['body'])
     data = body['fileContents']
-    #image = data['file']
-    #print(data['name'])
 
-    #image = image[image.find(",") + 1:]
     dec = base64.b64decode(data)
     label = {0: 'Cat', 1: 'Dog'}
-    buff = BytesIO()
     img = Image.open(BytesIO(dec))
 
     # resize
@@ -74,9 +50,14 @@ def handler(event, context):
     result = int(prediction[0])
     id = str(uuid.uuid1())
 
-    # persist
-    # commitData(id, result)
-
     return {
-        'prediction': result,
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
+        'body': json.dumps({
+            'prediction': result
+        }),
+        "isBase64Encoded": False
     }

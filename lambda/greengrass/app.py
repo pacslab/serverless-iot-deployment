@@ -34,8 +34,11 @@ def create_features(path):
 
 
 def lambda_handler(event, context):
-    s3.Bucket(bucket_name).download_file(file_path, MODEL_LOCAL_PATH)
-    svm = joblib.load(MODEL_LOCAL_PATH)
+    try:
+        svm = joblib.load(MODEL_LOCAL_PATH)
+    except:
+        s3.Bucket(bucket_name).download_file(file_path, MODEL_LOCAL_PATH)
+        svm = joblib.load(MODEL_LOCAL_PATH)
 
     # get image
     print(event)

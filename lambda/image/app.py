@@ -48,7 +48,6 @@ def handler(event, context):
     prediction = svm.predict([test_features])
     print("Prediction: " + label[prediction[0]])
     result = int(prediction[0])
-    id = str(uuid.uuid1())
 
     return {
         'statusCode': 200,

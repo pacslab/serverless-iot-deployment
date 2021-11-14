@@ -1,7 +1,5 @@
 import base64
-import json
 from io import BytesIO
-import uuid
 
 import joblib
 from PIL import Image

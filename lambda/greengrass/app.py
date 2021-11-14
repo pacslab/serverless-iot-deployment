@@ -1,6 +1,5 @@
 import json
 from io import BytesIO
-import uuid
 import joblib
 import boto3
 import numpy as np
@@ -59,7 +58,6 @@ def lambda_handler(event, context):
     prediction = svm.predict([test_features])
     print("Prediction: " + label[prediction[0]])
     result = int(prediction[0])
-    id = str(uuid.uuid1())
 
     return {
         'statusCode': 200,
@@ -68,7 +66,7 @@ def lambda_handler(event, context):
             'Access-Control-Allow-Origin': '*'
         },
         'body': json.dumps({
-            'prediction': 1
+            'prediction': result
         }),
         "isBase64Encoded": False
     }

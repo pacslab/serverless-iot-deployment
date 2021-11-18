@@ -1,5 +1,5 @@
 # set base image (host OS)
-FROM public.ecr.aws/lambda/python:3.9
+FROM public.ecr.aws/lambda/python:3.8
 
 # set the working directory in the container
 WORKDIR /code

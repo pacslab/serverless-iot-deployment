@@ -29,7 +29,6 @@ def create_features(path):
 
 def handler(event, context):
     #get image
-    print(event)
     body = json.loads(event['body'])
     data = body['fileContents']
 
@@ -46,7 +45,6 @@ def handler(event, context):
     # model
     svm = joblib.load('svm_model.sav')
     prediction = svm.predict([test_features])
-    print("Prediction: " + label[prediction[0]])
     result = int(prediction[0])
 
     return {

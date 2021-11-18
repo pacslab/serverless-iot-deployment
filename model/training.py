@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from torchvision.datasets import ImageFolder
-from feature_extraction import create_features
+from src.feature_extraction import create_features
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 import joblib
 
 
-dataset = ImageFolder("resize/dataset_1/training_set/")
+dataset = ImageFolder("../resize/dataset_1/training_set/")
 # label = {0: 'Cat', 1:'Dog'}
 def create_feature_matrix():
     # creating labels dataframe
@@ -53,7 +53,7 @@ def create_feature_matrix():
     accuracy = accuracy_score(y_pred, y_test)
     print('Model accuracy is: ', accuracy)
     # save the model to disk
-    filename = 'svm_model.sav'
+    filename = 'svm_model_small.sav'
     joblib.dump(svm, filename)
 
     return svm

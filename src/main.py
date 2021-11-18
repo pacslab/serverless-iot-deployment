@@ -1,3 +1,4 @@
+from model.training import create_feature_matrix
 from process_input import process
 from resize import *
 import time
@@ -20,5 +21,5 @@ def main():
 # Run Main
 if __name__ == "__main__":
     start_time = time.time()
-    main()
+    svm = create_feature_matrix()
     print("--- %s seconds ---" % (time.time() - start_time))

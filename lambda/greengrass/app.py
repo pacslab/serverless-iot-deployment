@@ -40,7 +40,6 @@ def lambda_handler(event, context):
         svm = joblib.load(MODEL_LOCAL_PATH)
 
     # get image
-    print(event)
     body = json.loads(event['body'])
     data = body['fileContents']
 
@@ -56,7 +55,6 @@ def lambda_handler(event, context):
 
     # model
     prediction = svm.predict([test_features])
-    print("Prediction: " + label[prediction[0]])
     result = int(prediction[0])
 
     return {

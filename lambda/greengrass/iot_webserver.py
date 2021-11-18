@@ -52,7 +52,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         # model
         svm = joblib.load('svm_model.sav')
         prediction = svm.predict([flat_features])
-        print("Prediction: " + label[prediction[0]])
         result = int(prediction[0])
 
         self.send_response(200)

@@ -264,6 +264,8 @@ xlabel('Improvement (%)','FontSize',18);
 
 f1.Position = [0 0 1200 700]; 
 print('BarPlotRange','-depsc')
+imwrite(f1,'newImage.jpg','jpg')
+
 
 
 

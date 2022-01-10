@@ -1610,7 +1610,7 @@ for i=1:400
 end
 f1 = figure;
 
-boxchart(m1,'BoxFaceColor',[112 128 144]/255,'MarkerColor',[0 0 0]);
+boxchart(m1,'BoxFaceColor',[1 1 1]/255,'MarkerColor',[0 0 0]);
 title('Run Time for 128MB','FontSize',18);
 bins = {'Image Container','ZIP Package'};
 set(gca,'xticklabel',bins,'FontSize',18);
@@ -1622,11 +1622,12 @@ a = legend( 'Distribution', 'Mean');
 a.FontSize=14;
 
 hold off
+box on
 
 xlabel('Deployment','FontSize',18);
 ylabel('Run Time (ms)','FontSize',18);
 
-f1.Position = [0 0 630 700]; 
+f1.Position = [0 0 600 600]; 
 print('Runtime230_128','-depsc')
 
 
@@ -1638,6 +1639,7 @@ set(gca,'xticklabel',bins,'FontSize',18);
 
 title('Run Time for 512MB','FontSize',18);
 
+box on
 
 xlabel('Deployment','FontSize',18);
 ylabel('Run Time (ms)','FontSize',18);
@@ -1648,7 +1650,7 @@ text(2,36,'34.2')
 a = legend( 'Distribution', 'Mean');
 a.FontSize=14;
 
-f2.Position = [0 0 630 700]; 
+f2.Position = [0 0 600 600]; 
 print('Runtime230_512','-depsc')
 
 

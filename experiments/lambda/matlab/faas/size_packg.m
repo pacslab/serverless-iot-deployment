@@ -13,7 +13,7 @@ sizek = [1
 f1 = figure;
 yyaxis right
 
-b = barh(x,sizek', 0.5);
+b = barh(sizek', 0.5);
 hold on
 
 %-----label value
@@ -46,7 +46,6 @@ set(gca,'YTickLabel',[],'YColor','k');
 
 set(gca,'xtick',(0:30:250),'FontSize',15)
 xlim([0, 250]);
-;
 
 title('Zip Package Size','FontSize',18);
 xlabel('Size (MB)','FontSize',18);

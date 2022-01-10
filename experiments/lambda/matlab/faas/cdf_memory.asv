@@ -1,0 +1,177 @@
+zip_128 =[12126.1
+12333.61
+12445.58
+12585.79
+12739.55
+12337.6
+12758.24
+12417.71
+12425.8
+12674.12
+12826.41
+12645.52
+12617.19
+12489.73
+12801.66
+12346.24
+12734.14
+12709.85
+13249.1
+12421.64];
+
+image_128 =[4165
+2594
+2550
+2510
+2525
+2597
+2611
+2583
+2541
+2618
+2584
+2537
+2527
+2748
+3696
+2916
+2637
+2475
+3198
+2659];
+
+image_1472 = [1259
+1268
+1229
+1320
+1282
+1192
+1202
+1253
+1206
+1208
+1288
+1520
+1213
+1296
+1568
+1426
+1242
+1514
+1703
+1227];
+
+zip_1472 = [1420.74
+1416.07
+1431.33
+1434.48
+1400.18
+1400.33
+1485.28
+1439.29
+1381.21
+1503.89
+1456.9
+1436.94
+1458.08
+1432.57
+1415.46
+1496.67
+1420.95
+1460.1
+1408.81
+1414.16];
+
+f1 = figure;
+hold on;
+h(1, 1) = cdfplot(zip_512);
+set( h(:,1), 'LineWidth',2);
+% ax = gca;
+% hold on
+% h(1, 1) =cdfplot(image_128)
+% set( h(:,1), 'LineWidth',2);
+% 
+% h(1, 1) =cdfplot(zip_1472)
+% set( h(:,1), 'LineWidth',2);
+% 
+% h(1, 1) =cdfplot(image_1472)
+% set( h(:,1), 'LineWidth',2);
+
+
+legend('ZIP 128','Container 128','zip 1g', 'container 1g', 'Location','best')
+yl = get(gca,'ylim');
+set(gca, 'YLimMode', 'Auto');
+set(gca, 'YLim', [0, 1.1]);
+
+
+f1.Position = [0 0 900 300]; 
+
+hold off
+
+f2 = figure;
+[F,X] = ecdf(zip_128);
+plot(X,F,'--b','LineWidth',2); 
+hold on
+plot([max(zip_128) 14000],[1 1],'--b','LineWidth',2); 
+
+[F,X] = ecdf(image_128);
+plot(X,F,'r', 'LineWidth',2); 
+plot([max(image_128) 14000],[1 1],'r','LineWidth',2); 
+grid on
+legend('ZIP 128MB','','Container 128MB','', 'Location','best')
+ylabel('CDF','FontSize',18);
+xlabel('Cold Start (ms)','FontSize',18);
+
+set(gca, 'YLimMode', 'Auto');
+set(gca, 'YLim', [0.0, 1.0]);
+f2.Position = [0 0 900 300]; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

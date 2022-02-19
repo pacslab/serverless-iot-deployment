@@ -1,1 +1,12 @@
-This is the Lambda application in container image
+### Serverless Applications Used
+- Image Classifier 230
+- Linear Regression
+- Image Back and White
+- TF Image Classifier
+- Resize and Feature
+- Resize
+- Factorial
+- Large Size Node.js
+- Medium Size Node.js
+- Large Size Java
+- Medium Size Java

@@ -1,0 +1,63 @@
+
+node1 = [-0.42198713
+-0.463429838
+-0.497402523
+-0.505704111
+-0.394605494
+-0.368467026
+-0.476964333];
+
+node2 = [0.0560442
+0.010580917
+0.054104631
+-0.007924845
+-0.021493135
+-0.252143974
+-0.241802624];
+
+node3 = [0.059472534
+-0.065604813
+-0.016024974
+-0.004294585
+-0.00845766
+0.074576487
+-0.012733616];
+
+
+
+y = [node1';node2';node3'];
+
+% plot cold start
+f1 = figure;
+x = [128 192 256 320 384 448 512];
+
+b = barh(x,y*100,'facecolor', 'flat')
+hold on
+
+
+
+
+b(1).FaceColor = [ 20 20 20]/255; 
+b(2).FaceColor =      [47 79 79] / 255;
+b(3).FaceColor  =      [112 128 144] / 255;
+
+
+
+ax = gca;
+ax.YGrid = 'on';
+
+
+set(gca, 'YTickLabel',{'Factorial','Mid size','Large Size', },'FontSize',15,'TickLength',[0 0])
+
+set(gca,'xtick',(-30:10:100),'FontSize',15)
+xlim([-40, 90]);
+
+title('Cold Start Improvement of The Image Container (Average)','FontSize',18);
+xlabel('Improvement (%)','FontSize',18);
+
+f1.Position = [0 0 1200 700]; 
+print('node_all','-depsc')
+
+
+
+

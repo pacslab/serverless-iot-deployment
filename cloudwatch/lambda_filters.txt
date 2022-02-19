@@ -1,0 +1,2 @@
+filter @type = "REPORT" |fields @timestamp, @billedDuration, @duration, @maxMemoryUsed
+| sort @timestamp asc | limit 9000

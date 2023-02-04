@@ -14,7 +14,14 @@ The raw CSV files of all experiments can be found [here](/experiments).
 ### Citation
 Please cite this work as followed:
 
-J. Dantas, H. Khazaei and M. Litoiu, "Application Deployment Strategies for Reducing the Cold Start Delay of AWS Lambda",
-2022 IEEE 15th International Conference on Cloud Computing (CLOUD), Barcelona, Spain, 2022, pp. 1-10, doi: 10.1109/CLOUD55607.2022.00016.
-https://ieeexplore.ieee.org/abstract/document/9860368
-
+````
+@INPROCEEDINGS{9860368,
+author={Dantas, Jaime and Khazaei, Hamzeh and Litoiu, Marin},
+booktitle={2022 IEEE 15th International Conference on Cloud Computing (CLOUD)},
+title={Application Deployment Strategies for Reducing the Cold Start Delay of AWS Lambda},
+year={2022},
+volume={},
+number={},
+pages={1-10},
+doi={10.1109/CLOUD55607.2022.00016}}
+``````
